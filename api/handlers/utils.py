@@ -31,7 +31,7 @@ def decrypt(ciphertext_bytes):
     return plaintext_2
    
 
-#Creating Hash function with SHA256. The author intend using PBKDFhere
+#Creating Hash function with SHA256. The author intend using PBKDF instead if time permit
 def hash_pass(message):
     digest_sha256 = hashes.Hash(hashes.SHA256())
     digest_sha256.update(message)
