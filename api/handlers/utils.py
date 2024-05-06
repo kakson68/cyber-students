@@ -31,13 +31,27 @@ def decrypt(ciphertext_bytes):
     return plaintext_2
    
 
-#Creating Hash function with SHA256. The author intend using PBKDF instead if time permit
+#Creating Hash function with SHA256. The author intend using Scrypt /PBKDF instead if time permit
 def hash_pass(message):
     digest_sha256 = hashes.Hash(hashes.SHA256())
     digest_sha256.update(message)
     hash_sha256 = digest_sha256.finalize()
     return hash_sha256.hex()
    
+
+
+
+# The author intend to use this to hash the passphrase if time permit
+#import os
+# from cryptopgraphy.hazmat.primitives.kdf.scrypt import Scrypt
+
+#def my_scrypt(message):
+# salt = os.urandom(16) #Using 256-bit salt value
+# ola_n=2**22 # This is to make the computation very difficult
+# kdf = Scrypt(salt=salt, length=32, n=ola_n, r=8, p=1)
+# passphrase = input("please enter your passphrase:")
+# passphrase_bytes = bytes(passphrase, "utf-8")
+# hashed_passphrase = kdf.derive(passphrase_bytes)
  
 
 
